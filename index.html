@@ -590,12 +590,13 @@ g" alt="Romantic envelope with heart" class="envelope-image">
     </div>  
 </div>  
 
+
 <!-- Music Button -->  
 <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🔊</button>  
 
 <!-- Audio element with uploaded music -->  
-<audio id="music" autoplay loop>
-  <source src="cutecatthis-20250731-0001.mp3"  type="audio/mpeg">
+<audio id="backgroundMusic" autoplay loop>
+  <source src="cutecatthis-20250731-0001.mp3" type="audio/mpeg">
   Your browser does not support the audio tag.
 </audio>  
 
@@ -607,10 +608,10 @@ g" alt="Romantic envelope with heart" class="envelope-image">
         pages.forEach(page => {  
             page.classList.remove('active');  
         });  
-          
+        
         // Show selected page  
         document.getElementById(pageId).classList.add('active');  
-          
+        
         // Auto-enable music on page 4  
         if (pageId === 'page4') {  
             const music = document.getElementById('backgroundMusic');  
@@ -625,12 +626,12 @@ g" alt="Romantic envelope with heart" class="envelope-image">
     function toggleMusic() {  
         const music = document.getElementById('backgroundMusic');  
         const musicBtn = document.getElementById('musicBtn');  
-          
+        
         if (!music.src) {  
             alert('Music will be available once you add the MP3 link! 🎵');  
             return;  
         }  
-          
+        
         if (musicPlaying) {  
             music.pause();  
             musicBtn.textContent = '🔊';  
@@ -642,7 +643,7 @@ g" alt="Romantic envelope with heart" class="envelope-image">
             musicBtn.textContent = '🔇';  
             musicPlaying = true;  
         }  
-    }  
+    }    
 
     // Create floating hearts  
     function createFloatingHeart() {  

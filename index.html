@@ -645,51 +645,33 @@ g" alt="Romantic envelope with heart" class="envelope-image">
         }  
     } 
 }
-    // Create floating hearts  
-    function createFloatingHeart() {  
-        const heart = document.createElement('div');  
-        heart.className = 'heart';  
-        heart.textContent = '💕';  
-        heart.style.left = Math.random() * 100 + 'vw';  
-        heart.style.animationDelay = Math.random() * 6 + 's';  
-        heart.style.animationDuration = (Math.random() * 3 + 6) + 's';  
-          
-        document.getElementById('floatingHearts').appendChild(heart);  
-          
-        // Remove heart after animation  
-        setTimeout(() => {  
-            if (heart.parentNode) {  
-                heart.parentNode.removeChild(heart);  
-            }  
-        }, 9000);  
-    }  
+// Add some random heart variations  
+const heartTypes = ['💕', '💖', '💗', '💓', '💘'];
 
-    // Create hearts periodically  
-    setInterval(createFloatingHeart, 2000);  
+function createFloatingHeart() {  
+    const heart = document.createElement('div');  
+    heart.className = 'heart';  
+    heart.textContent = heartTypes[Math.floor(Math.random() * heartTypes.length)];  
+    heart.style.left = Math.random() * 100 + 'vw';  
+    heart.style.animationDelay = Math.random() * 6 + 's';  
+    heart.style.animationDuration = (Math.random() * 3 + 6) + 's';  
       
-    // Create initial hearts  
-    for (let i = 0; i < 5; i++) {  
-        setTimeout(createFloatingHeart, i * 400);  
-    }  
+    document.getElementById('floatingHearts').appendChild(heart);  
+      
+    setTimeout(() => {  
+        if (heart.parentNode) {  
+            heart.parentNode.removeChild(heart);  
+        }  
+    }, 9000);  
+}  
 
-        // Add some random heart variations  
-    const heartTypes = ['💕', '💖', '💗', '💓', '💘'];  
-    function createFloatingHeart() {  
-        const heart = document.createElement('div');  
-        heart.className = 'heart';  
-        heart.textContent = heartTypes[Math.floor(Math.random() * heartTypes.length)];  
-        heart.style.left = Math.random() * 100 + 'vw';  
-        heart.style.animationDelay = Math.random() * 6 + 's';  
-        heart.style.animationDuration = (Math.random() * 3 + 6) + 's';  
-          
-        document.getElementById('floatingHearts').appendChild(heart);  
-          
-        setTimeout(() => {  
-            if (heart.parentNode) {  
-                heart.parentNode.removeChild(heart);  
-            }  
-        }, 9000);  
-    }  
+// Create hearts periodically  
+setInterval(createFloatingHeart, 2000);  
+
+// Create initial hearts  
+for (let i = 0; i < 5; i++) {  
+    setTimeout(createFloatingHeart, i * 400);  
+                                         }
 </script>
-</body>  
-</html>   
+</body>
+</html>
